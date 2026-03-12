@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-
 import { useEffect, useMemo, useState } from "react";
 
 type Countdown = {
@@ -148,12 +147,32 @@ export default function HomePage() {
                 <li>Fideuá o arroz marinera (mínimo 2 personas)</li>
                 <li>Secreto de cerdo</li>
               </ul>
-              <p className="small">Al apuntarte marca si prefieres <strong>pescado</strong> o <strong>carne</strong>.</p>
+              <p className="small">
+                Al apuntarte marca si prefieres <strong>pescado</strong> o <strong>carne</strong>.
+              </p>
             </div>
           </div>
         </section>
 
         <div className="grid grid-2">
+          <section className="card">
+            <h2>💖 Nuestra protagonista</h2>
+
+            <div className="photo-wrap">
+              <Image
+                src="/nuria.jpg"
+                alt="Foto de Nuria"
+                width={900}
+                height={1200}
+                className="hero-photo"
+              />
+            </div>
+
+            <p className="small">
+              Porque esta despedida merece una protagonista a la altura. ✨
+            </p>
+          </section>
+
           <section className="card">
             <h2>✍️ Apúntate a la cena</h2>
             <p className="small">
@@ -166,7 +185,7 @@ export default function HomePage() {
                 <input
                   id="name"
                   type="text"
-                  placeholder="Ej. Marta Bello Rego"
+                  placeholder="Ej. Nuria Vicente"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   required
@@ -218,19 +237,19 @@ export default function HomePage() {
 
             <hr />
 
-            <h3>💝 Aporte regalo</h3>
+            <h3>💝 Regalo para Nuria</h3>
             <p className="small">
               Además del menú, se añadirán <strong>5 €</strong> por persona para el regalo de Nuria.
             </p>
 
-            <h3>🔒 Gestión de inscritos</h3>
             <p className="small">
-              La lista de apuntados y la exportación a CSV estarán disponibles solo para la administradora.
+              <strong>
+                Si no vas a venir a la cena pero quieres aportar para el regalo, también puedes participar con 5 €.
+              </strong>
             </p>
 
-            <h3>⚗️ Tema</h3>
             <p className="small">
-              La web está inspirada en el laboratorio: matraces, microscopio, colores suaves y ambiente elegante.
+              Estamos recogiéndolo <strong>desde ya</strong>.
             </p>
           </section>
         </div>
