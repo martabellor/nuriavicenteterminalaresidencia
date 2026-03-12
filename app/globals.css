@@ -299,3 +299,17 @@ hr {
   border-top: 1px solid var(--border);
   margin: 18px 0;
 }
+.photo-wrap {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+}
+
+.hero-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
