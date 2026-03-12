@@ -91,85 +91,76 @@ export default function HomePage() {
       <div className="container">
         <section className="hero">
           <div className="lab-deco" />
-          <span className="badge">🧪 Cena de despedida · Análisis Clínicos</span>
-          <h1 className="hero-title">Despedimos a Nuria por todo lo alto</h1>
-          <p className="hero-sub">
-            Después de cerrar una etapa tan importante de la residencia, toca celebrarlo.
-            Reserva tu sitio para la cena de despedida de <strong>Nuria</strong> y acompáñanos
-            en una noche especial entre compañeros, risas y mucho ambiente de laboratorio.
-          </p>
 
-          <div className="grid grid-2">
-            <div className="card">
-              <h2>📍 Fecha y hora</h2>
+          <span className="badge">🧪 Cena de despedida · Análisis Clínicos</span>
+
+          <div className="hero-top">
+            <div className="hero-text">
+              <h1 className="hero-title">Despedimos a Nuria por todo lo alto</h1>
+              <p className="hero-sub">
+                Después de cerrar una etapa tan importante de la residencia, toca celebrarlo.
+                Reserva tu sitio para la cena de despedida de <strong>Nuria</strong> y acompáñanos
+                en una noche especial entre compañeros, risas y mucho ambiente de laboratorio.
+              </p>
+
               <p className="small">
                 <strong>{formattedDate}</strong>
               </p>
-              <p className="small">
-                Ve haciendo hueco en la agenda porque la cuenta atrás ya está en marcha:
-              </p>
-
-              <div className="countdown">
-                <div className="count-box">
-                  <div className="count-number">{countdown.days}</div>
-                  <div className="count-label">Días</div>
-                </div>
-                <div className="count-box">
-                  <div className="count-number">{countdown.hours}</div>
-                  <div className="count-label">Horas</div>
-                </div>
-                <div className="count-box">
-                  <div className="count-number">{countdown.minutes}</div>
-                  <div className="count-label">Minutos</div>
-                </div>
-                <div className="count-box">
-                  <div className="count-number">{countdown.seconds}</div>
-                  <div className="count-label">Segundos</div>
-                </div>
-              </div>
             </div>
 
-            <div className="card">
-              <h2>💶 Menú y precio</h2>
-              <div className="price">45 €</div>
-              <p className="small">+ 5 € de regalo para Nuria</p>
+            <div className="hero-photo-box">
+              <Image
+                src="/nuria.jpg"
+                alt="Foto de Nuria"
+                width={700}
+                height={850}
+                className="hero-photo"
+              />
+            </div>
+          </div>
 
-              <h3>Entrantes para compartir</h3>
-              <ul className="menu-list">
-                <li>Tostas de bacalao ahumado</li>
-                <li>Montaditos de piquillo, espárrago y queso</li>
-                <li>Croquetas caseras</li>
-              </ul>
-
-              <h3>Segundos</h3>
-              <ul className="menu-list">
-                <li>Merluza ría a la plancha</li>
-                <li>Fideuá o arroz marinera (mínimo 2 personas)</li>
-                <li>Secreto de cerdo</li>
-              </ul>
-              <p className="small">
-                Al apuntarte marca si prefieres <strong>pescado</strong> o <strong>carne</strong>.
-              </p>
+          <div className="mini-countdown">
+            <div className="mini-count-box">
+              <span className="mini-count-number">{countdown.days}</span>
+              <span className="mini-count-label">días</span>
+            </div>
+            <div className="mini-count-box">
+              <span className="mini-count-number">{countdown.hours}</span>
+              <span className="mini-count-label">horas</span>
+            </div>
+            <div className="mini-count-box">
+              <span className="mini-count-number">{countdown.minutes}</span>
+              <span className="mini-count-label">min</span>
+            </div>
+            <div className="mini-count-box">
+              <span className="mini-count-number">{countdown.seconds}</span>
+              <span className="mini-count-label">seg</span>
             </div>
           </div>
         </section>
 
         <div className="grid grid-2">
           <section className="card">
-            <h2>💖 Nuestra protagonista</h2>
+            <h2>💶 Menú y precio</h2>
+            <div className="price">45 €</div>
+            <p className="small">+ 5 € de regalo para Nuria</p>
 
-            <div className="photo-wrap">
-              <Image
-                src="/nuria.jpg"
-                alt="Foto de Nuria"
-                width={900}
-                height={1200}
-                className="hero-photo"
-              />
-            </div>
+            <h3>Entrantes para compartir</h3>
+            <ul className="menu-list">
+              <li>Tostas de bacalao ahumado</li>
+              <li>Montaditos de piquillo, espárrago y queso</li>
+              <li>Croquetas caseras</li>
+            </ul>
+
+            <h3>Segundos</h3>
+            <ul className="menu-list">
+              <li>Merluza ría a la plancha</li>
+              <li>Fideuá o arroz marinera (mínimo 2 personas)</li>
+              <li>Secreto de cerdo</li>
+            </ul>
 
             <p className="small">
-              Porque esta despedida merece una protagonista a la altura. ✨
+              Al apuntarte marca si prefieres <strong>pescado</strong> o <strong>carne</strong>.
             </p>
           </section>
 
@@ -185,7 +176,7 @@ export default function HomePage() {
                 <input
                   id="name"
                   type="text"
-                  placeholder="Ej. Nuria Vicente"
+                  placeholder="Ej. Marta Bello Rego"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   required
@@ -227,7 +218,9 @@ export default function HomePage() {
               )}
             </form>
           </section>
+        </div>
 
+        <div className="grid">
           <section className="card">
             <h2>🧫 Información importante</h2>
             <p>
