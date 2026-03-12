@@ -176,7 +176,7 @@ export default function HomePage() {
                 <input
                   id="name"
                   type="text"
-                  placeholder="Ej. Marta Bello Rego"
+                  placeholder="Ej. Nuria Vicente"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   required
@@ -224,7 +224,7 @@ export default function HomePage() {
           <section className="card">
             <h2>🧫 Información importante</h2>
             <p>
-              El dinero lo recogen <span className="highlight">María</span> y los residentes:
+              El dinero lo recogen <span className="highlight">María, Marta</span> y los residentes:
               <span className="highlight"> Raquel, Cibrán y Claudia</span>.
             </p>
 
