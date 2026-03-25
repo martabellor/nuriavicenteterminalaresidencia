@@ -415,3 +415,30 @@ hr {
     max-height: 360px;
   }
 }
+.event-date {
+  font-size: 1.55rem;
+  font-weight: 800;
+  margin: 18px 0 8px;
+  color: #243554;
+  line-height: 1.25;
+}
+
+.event-restaurant {
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin: 8px 0 4px;
+  color: #3975a8;
+}
+
+.event-address {
+  font-size: 1.08rem;
+  margin: 0 0 10px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.event-link {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  font-weight: 700;
+}
