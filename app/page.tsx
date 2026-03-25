@@ -11,7 +11,7 @@ type Countdown = {
 };
 
 function getCountdown(): Countdown {
-  const target = new Date("2026-05-23T22:00:00+02:00").getTime();
+  const target = new Date("2026-05-22T22:00:00+02:00").getTime();
   const now = new Date().getTime();
   const diff = Math.max(target - now, 0);
 
@@ -41,9 +41,13 @@ export default function HomePage() {
 
   const formattedDate = useMemo(() => {
     return new Intl.DateTimeFormat("es-ES", {
-      dateStyle: "full",
-      timeStyle: "short",
-    }).format(new Date("2026-05-23T22:00:00+02:00"));
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    }).format(new Date("2026-05-22T22:00:00+02:00"));
   }, []);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -103,16 +107,19 @@ export default function HomePage() {
                 en una noche especial entre compañeros.
               </p>
 
-              <p className="small">
-                <strong>{formattedDate}</strong>
+              <p className="event-date">
+                Viernes 22 de mayo · 22:00
               </p>
 
-              <p className="small">
-                <strong>Restaurante DA-VID</strong><br />
+              <p className="event-restaurant">
+                Restaurante DA-VID
+              </p>
+
+              <p className="event-address">
                 Rúa de Urzaiz, 72, 36204 Vigo, Pontevedra
               </p>
 
-              <p className="small">
+              <p className="event-link">
                 <a
                   href="https://da-vid.es/"
                   target="_blank"
@@ -120,6 +127,10 @@ export default function HomePage() {
                 >
                   Ver web del restaurante
                 </a>
+              </p>
+
+              <p className="small">
+                {formattedDate}
               </p>
             </div>
 
@@ -158,7 +169,7 @@ export default function HomePage() {
           <section className="card">
             <h2>💶 Menú y precio</h2>
             <div className="price">45 €</div>
-            <p className="small">Cena + 5 € de regalo de despedida</p>
+            <p className="small">TOTAL 50€: Cena 45€ + 5 € de regalo de despedida</p>
 
             <h3>Entrantes</h3>
             <ul className="menu-list">
@@ -200,7 +211,7 @@ export default function HomePage() {
                 <input
                   id="name"
                   type="text"
-                  placeholder="Ej. Marta Bello Rego"
+                  placeholder="Ej. NURIA VICENTE"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   required
@@ -248,8 +259,8 @@ export default function HomePage() {
           <section className="card">
             <h2>🧫 Información importante</h2>
             <p>
-              El dinero lo recogen <span className="highlight">María</span> y los residentes:
-              <span className="highlight"> Raquel, Cibrán y Claudia</span>.
+              El dinero lo recogen <span className="highlight">Marta Bello</span> y
+              <span className="highlight"> Raquel Villalba</span>.
             </p>
 
             <hr />
