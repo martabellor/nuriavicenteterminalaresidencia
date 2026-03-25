@@ -11,7 +11,7 @@ type Countdown = {
 };
 
 function getCountdown(): Countdown {
-  const target = new Date("2026-05-22T22:00:00+02:00").getTime();
+  const target = new Date("2026-05-23T22:00:00+02:00").getTime();
   const now = new Date().getTime();
   const diff = Math.max(target - now, 0);
 
@@ -30,7 +30,7 @@ export default function HomePage() {
 
   const [form, setForm] = useState({
     name: "",
-    menu_choice: "pescado",
+    menu_choice: "carne",
     allergies: "",
   });
 
@@ -43,7 +43,7 @@ export default function HomePage() {
     return new Intl.DateTimeFormat("es-ES", {
       dateStyle: "full",
       timeStyle: "short",
-    }).format(new Date("2026-05-22T22:00:00+02:00"));
+    }).format(new Date("2026-05-23T22:00:00+02:00"));
   }, []);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -73,7 +73,7 @@ export default function HomePage() {
 
       setForm({
         name: "",
-        menu_choice: "pescado",
+        menu_choice: "carne",
         allergies: "",
       });
     } catch (error) {
@@ -100,11 +100,26 @@ export default function HomePage() {
               <p className="hero-sub">
                 Después de cerrar una etapa tan importante de la residencia, toca celebrarlo.
                 Reserva tu sitio para la cena de despedida de <strong>Nuria</strong> y acompáñanos
-                en una noche especial entre compañeros, risas y mucho ambiente de laboratorio.
+                en una noche especial entre compañeros.
               </p>
 
               <p className="small">
                 <strong>{formattedDate}</strong>
+              </p>
+
+              <p className="small">
+                <strong>Restaurante DA-VID</strong><br />
+                Rúa de Urzaiz, 72, 36204 Vigo, Pontevedra
+              </p>
+
+              <p className="small">
+                <a
+                  href="https://da-vid.es/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ver web del restaurante
+                </a>
               </p>
             </div>
 
@@ -143,31 +158,40 @@ export default function HomePage() {
           <section className="card">
             <h2>💶 Menú y precio</h2>
             <div className="price">45 €</div>
-            <p className="small">+ 5 € de regalo para Nuria</p>
+            <p className="small">Cena + 5 € de regalo de despedida</p>
 
-            <h3>Entrantes para compartir</h3>
+            <h3>Entrantes</h3>
             <ul className="menu-list">
-              <li>Tostas de bacalao ahumado</li>
-              <li>Montaditos de piquillo, espárrago y queso</li>
-              <li>Croquetas caseras</li>
+              <li>Tabla especial de ibéricos (jamón ibérico, chorizo, salchichón, tetilla y queso semicurado).</li>
+              <li>Carpaccio de solomillo de ternera gallega, boletus, trufa negra y parmesano.</li>
+              <li>Gyozas de gambas y verduras con mayonesa de soja.</li>
             </ul>
 
-            <h3>Segundos</h3>
+            <h3>Plato principal (a elegir)</h3>
             <ul className="menu-list">
-              <li>Merluza ría a la plancha</li>
-              <li>Fideuá o arroz marinera (mínimo 2 personas)</li>
-              <li>Secreto de cerdo</li>
+              <li>Entrecot de vaca PREMIUM con patata asada y mayonesa.</li>
+              <li>Bacalao confitado con parmentier y pisto manchego.</li>
+            </ul>
+
+            <h3>Postre</h3>
+            <ul className="menu-list">
+              <li>Tarta de toblerone con avellana cruch.</li>
+            </ul>
+
+            <h3>Bebida</h3>
+            <ul className="menu-list">
+              <li>Agua y refrescos, rioja crianza y albariño.</li>
             </ul>
 
             <p className="small">
-              Al apuntarte marca si prefieres <strong>pescado</strong> o <strong>carne</strong>.
+              Al apuntarte marca si prefieres <strong>carne</strong> o <strong>pescado</strong>.
             </p>
           </section>
 
           <section className="card">
             <h2>✍️ Apúntate a la cena</h2>
             <p className="small">
-              Completa tus datos y deja indicado tu menú y posibles alergias o intolerancias.
+              Completa tus datos y deja indicado tu plato principal y cualquier observación importante.
             </p>
 
             <form onSubmit={handleSubmit}>
@@ -176,7 +200,7 @@ export default function HomePage() {
                 <input
                   id="name"
                   type="text"
-                  placeholder="Ej. Nuria Vicente"
+                  placeholder="Ej. Marta Bello Rego"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   required
@@ -184,24 +208,24 @@ export default function HomePage() {
               </div>
 
               <div>
-                <label htmlFor="menu_choice">¿Qué prefieres?</label>
+                <label htmlFor="menu_choice">Plato principal</label>
                 <select
                   id="menu_choice"
                   value={form.menu_choice}
                   onChange={(e) => setForm({ ...form, menu_choice: e.target.value })}
                   required
                 >
-                  <option value="pescado">Pescado</option>
-                  <option value="carne">Carne</option>
+                  <option value="carne">Entrecot de vaca PREMIUM</option>
+                  <option value="pescado">Bacalao confitado</option>
                 </select>
               </div>
 
               <div>
-                <label htmlFor="allergies">Alergias / intolerancias</label>
+                <label htmlFor="allergies">Comentarios</label>
                 <textarea
                   id="allergies"
-                  rows={4}
-                  placeholder="Si no tienes, escribe: ninguna"
+                  rows={5}
+                  placeholder="Añade aquí si tienes algún tipo de alergia, intolerancia, si eres vegano, vegetariano, celíaco... nos adaptaremos a ti personalmente"
                   value={form.allergies}
                   onChange={(e) => setForm({ ...form, allergies: e.target.value })}
                 />
@@ -224,15 +248,15 @@ export default function HomePage() {
           <section className="card">
             <h2>🧫 Información importante</h2>
             <p>
-              El dinero lo recogen <span className="highlight">María, Marta</span> y los residentes:
-              <span className="highlight"> Raquel, Cibrán y Claudia</span>.
+              El dinero lo recogen <span className="highlight">Marta</span> y
+              <span className="highlight"> Raquel</span>.
             </p>
 
             <hr />
 
             <h3>💝 Regalo para Nuria</h3>
             <p className="small">
-              Además del menú, se añadirán <strong>5 €</strong> por persona para el regalo de Nuria.
+              Además del menú, se añadirán <strong>5 €</strong> por persona para el regalo de despedida.
             </p>
 
             <p className="small">
