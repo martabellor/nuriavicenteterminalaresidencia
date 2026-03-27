@@ -279,6 +279,22 @@ export default function HomePage() {
             <p className="small">
               Estamos recogiéndolo <strong>desde ya</strong>.
             </p>
+
+            <hr />
+
+            <p className="small">
+              <strong>Fecha tope para pagar:</strong> 15 de mayo de 2026.
+            </p>
+
+            <p className="small">
+              <strong>Fecha tope para anotarse:</strong> 30 de abril de 2026.
+            </p>
+
+            <p className="small">
+              <strong>Vamos a hacerle un álbum de fotos.</strong> Porfa, si tenéis fotos con Nuria, enviadlas al
+              <strong> 619924763</strong> o a{" "}
+              <strong>martabellorego@gmail.com</strong>.
+            </p>
           </section>
         </div>
 
